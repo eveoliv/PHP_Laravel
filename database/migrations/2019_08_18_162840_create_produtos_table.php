@@ -19,7 +19,7 @@ class CreateProdutosTable extends Migration
             $table->decimal('valor');
             $table->string('descricao');
             $table->integer('quantidade');
-            $table->timestamps();
+            //$table->timestamps();
         });
     }
 
