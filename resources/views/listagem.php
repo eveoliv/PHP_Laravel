@@ -1,15 +1,21 @@
 <html>
+<head>
+    <link rel="stylesheet" href="/css/app.css">
+    <title>Controle de Estoque</title>
+</head>
     <body>
-    <h1>Listagem de Produtos</h1>    
-        <table>
-            <?php foreach ($prosutos as $p ): ?> 
-                <tr>
-                <td><?= $p->nome ?></td>
-                <td><?= $p->valor ?></td>
-                <td><?= $p->quantidade ?></td>
-                <td><?= $p->descricao ?></td>
-                </tr>        
-            <?php endforeach ?>    
-        </table>
+        <div class="container mt-5">
+            <h1>Listagem de Produtos</h1>    
+            <table class="table table-striped table-bordered table-hover">
+                <?php foreach ($produtos as $p ): ?> 
+                    <tr>
+                    <td><?= $p->nome ?></td>
+                    <td><?= $p->valor ?></td>
+                    <td><?= $p->descricao ?></td>
+                    <td><?= $p->quantidade ?></td>
+                    </tr>        
+                <?php endforeach ?>    
+            </table>
+        </div>
     </body>
 </html>
