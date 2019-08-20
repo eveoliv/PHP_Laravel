@@ -1,6 +1,6 @@
 <html>
-<head>
-    <link rel="stylesheet" href="/css/app.css">
+<head> 
+    <link href="/css/app.css" rel="stylesheet">
     <title>Controle de Estoque</title>
 </head>
     <body>
@@ -13,6 +13,11 @@
                     <td><?= $p->valor ?></td>
                     <td><?= $p->descricao ?></td>
                     <td><?= $p->quantidade ?></td>
+                    <td>
+                        <a href="/produtos/mostra">
+                            <span class="glyphicon glyphicon-search">mostrar</span>
+                        </a>
+                    </td>
                     </tr>        
                 <?php endforeach ?>    
             </table>
