@@ -1,11 +1,19 @@
 
-@extends('principal')
+@extends('layout.principal')
 
 @section('conteudo')
+
+@if(empty($produtos))
+
+    <div class="alert alert-danger">
+        Não existem produtos cadastrados!
+    </div>
+
+@else
 <h1>Listagem de Produtos</h1>    
     <table class="table table-striped table-bordered table-hover">
-        <?php foreach ($produtos as $p ): ?> 
-            <tr>
+        @foreach ($produtos as $p )
+            <tr class="{{ $p->quantidade <= 1 ? 'danger' : '' }}">
                 <td>{{ $p->nome }}</td>
                 <td>{{ $p->valor }}</td>
                 <td>{{ $p->descricao }}</td>
@@ -16,6 +24,12 @@
                 </a>
                 </td>
             </tr>        
-        <?php endforeach ?>    
+        @endforeach
     </table>
+@endif
+<h4>
+    <span class="label label-danger pull-right"> 
+        Um ou menos itens no estoque.
+    </span>
+</h4>
 @stop

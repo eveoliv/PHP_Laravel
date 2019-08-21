@@ -1,5 +1,5 @@
 
-@extends('principal')
+@extends('layout.principal')
 
 @section('conteudo')
 
