@@ -2,17 +2,18 @@
 @extends('principal')
 
 @section('conteudo')
-<h1>Detalhes do Produto: <?= $p->nome ?></h1>            
+
+<h1>Detalhes do Produto: {{$p->nome}}</h1>            
 
 <ul>
     <li>
-        <b>Valor:</b> R$ <?= $p->valor ?>   
+        <b>Valor:</b> R$ {{$p->valor}}
     </li>
     <li>
-        <b>Descricao:</b> <?= $p->descricao ?>
+        <b>Descricao:</b> {{$p->descricao}}
     </li>
     <li>
-        <b>Quantidade estoque:</b> <?= $p->quantidade ?>
+        <b>Quantidade estoque:</b> {{$p->quantidade}}
     </li>
 </ul>   
 @stop
