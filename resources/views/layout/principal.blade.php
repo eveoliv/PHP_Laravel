@@ -17,14 +17,19 @@
                 </a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-            <li><a href="/produtos">Listagem</a></li>
+            <li>
+                <a href="/produtos">Listagem</a>
+            </li>
+            <li>
+                <a href="/produtos/novo">Novo</a>
+            </li>
             </ul>
         </div>
     </nav>
         @yield('conteudo')
 
         <footer class="footer">
-            <p>© Livro de Laravel da Casa do Código.</p>
+            <p>© Controlde de estoque modelo, PHP e Lavavel.</p>
         </footer>
     </div>
 </body>
