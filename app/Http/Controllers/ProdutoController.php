@@ -34,7 +34,7 @@ class ProdutoController extends Controller
         return view('produto.formulario');
     }
 
-    public function adiciona()
+    public function adiciona(int $id)
     {   
         /* metodo 1
         $nome = Request::input('nome');
@@ -62,11 +62,25 @@ class ProdutoController extends Controller
         */
         
         /*metodo 3 */
-        Produto::create(Request::all());
+
+        if(empty($id)){
+
+            Produto::create(Request::all());
+        }else{
+            
+            Produto::update(Request::all());
+        }
         
         return redirect()
         ->action('ProdutoController@lista')
         ->withInput(Request::only('nome'));   
+    }
+
+    public  function altera(int $id)
+    {
+        $produto = Produto::find($id);
+        
+        return view('produto.formulario')->with('p', $produto);      
     }
 
     public function remove(int $id)

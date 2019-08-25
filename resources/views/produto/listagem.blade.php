@@ -28,6 +28,11 @@
                         <span class="glyphicon glyphicon-trash"></span>
                     </a>
                 </td>
+                <td align="center">
+                    <a href="{{ action('ProdutoController@altera', $p->id )}}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                </td>
             </tr>        
         @endforeach
     </table>
