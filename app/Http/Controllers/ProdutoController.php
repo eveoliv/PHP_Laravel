@@ -44,6 +44,6 @@ class ProdutoController extends Controller
             'quantidade' => $quantidade
             ]);
 
-        return view('produtos/adicionado')->with('nome', $nome);
+        return redirect('/produtos')->withInput(Request::only('nome'));
     }
 }
