@@ -29,7 +29,7 @@
                     </a>
                 </td>
                 <td align="center">
-                    <a href="{{ action('ProdutoController@altera', $p->id )}}">
+                    <a href="{{ action('ProdutoController@editar', $p->id )}}">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                 </td>
@@ -45,7 +45,7 @@
 
 @if(old('nome'))
     <div class="alert alert-success">
-        O produto {{ old('nome') }} foi adicionado com <strong>sucesso!</strong>
+        O produto {{ old('nome') }} foi adicionado/alterado com <strong>sucesso!</strong>
     </div>
 @endif
 @stop

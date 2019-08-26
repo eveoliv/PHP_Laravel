@@ -34,54 +34,33 @@ class ProdutoController extends Controller
         return view('produto.formulario');
     }
 
-    public function adiciona(int $id)
-    {   
-        /* metodo 1
-        $nome = Request::input('nome');
-        $valor = Request::input('valor');
-        $descricao = Request::input('descricao');
-        $quantidade = Request::input('quantidade');        
-        
-        DB::table('produtos')->insert(
-                ['nome' => $nome,
-                'valor' => $valor,
-                'descricao' => $descricao,
-                'quantidade' => $quantidade
-                ]);
-        return redirect('/produtos')->withInput(Request::only('nome'));
-        */
-        
-        /*metodo 2
-        $params = Request::all();
-        $produto = new Produto($params);                    
-        $produto->save();
-        
-        return redirect()
-        ->action('ProdutoController@lista')
-        ->withInput(Request::only('nome'));   
-        */
-        
-        /*metodo 3 */
-
-        if(empty($id)){
-
-            Produto::create(Request::all());
-        }else{
-            
-            Produto::update(Request::all());
-        }
-        
+    public function adiciona()
+    {           
+        Produto::create(Request::all());
+                
         return redirect()
         ->action('ProdutoController@lista')
         ->withInput(Request::only('nome'));   
     }
 
-    public  function altera(int $id)
+    public function editar(int $id)
     {
         $produto = Produto::find($id);
         
-        return view('produto.formulario')->with('p', $produto);      
+        return view('produto.alterar')
+        ->with('p', $produto);      
     }
+
+    public function alterar(int $id)
+    {
+        $params = Request::all();
+        $produto = Produto::find($id);
+        $produto->update($params);
+
+        return redirect()
+        ->action('ProdutoController@lista')
+        ->withInput(Request::only('nome')); 
+    }         
 
     public function remove(int $id)
     {
