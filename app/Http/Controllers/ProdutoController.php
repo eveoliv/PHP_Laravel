@@ -10,22 +10,20 @@ use Request;
 class ProdutoController extends Controller
 {
     public function lista()
-    {              
-        //$produtos = DB::select('select * from produtos');               
+    { //$produtos = DB::select('select * from produtos');               
         $produtos = Produto::all();
-
-        return view('produto.listagem')
-        ->with('produtos', $produtos);
+        
+        return view('produto.listagem')->with('produtos', $produtos);
     }
 
     public function mostra(int $id)
-    {        
-        //$resposta = DB::select('select * from produtos where id = ?', [$id]);
+    {//$resposta = DB::select('select * from produtos where id = ?', [$id]);
         $produto = Produto::find($id);
-
+        
         if (empty($produto)) {
             return "Esse produto não existe";
         }
+        
         return view('produto.detalhes')->with('p', $produto);
     }
 
@@ -34,21 +32,18 @@ class ProdutoController extends Controller
         return view('produto.formulario');
     }
 
-    public function adiciona()
+    public function adiciona(ProdutosRequest $request)
     {           
-        Produto::create(Request::all());
+        Produto::create($request::all());
                 
-        return redirect()
-        ->action('ProdutoController@lista')
-        ->withInput(Request::only('nome'));   
+        return redirect()->action('ProdutoController@lista')->withInput(Request::only('nome'));   
     }
 
     public function editar(int $id)
     {
         $produto = Produto::find($id);
         
-        return view('produto.alterar')
-        ->with('p', $produto);      
+        return view('produto.alterar')->with('p', $produto);      
     }
 
     public function alterar(int $id)
@@ -57,9 +52,7 @@ class ProdutoController extends Controller
         $produto = Produto::find($id);
         $produto->update($params);
 
-        return redirect()
-        ->action('ProdutoController@lista')
-        ->withInput(Request::only('nome')); 
+        return redirect()->action('ProdutoController@lista')->withInput(Request::only('nome')); 
     }         
 
     public function remove(int $id)
@@ -67,15 +60,13 @@ class ProdutoController extends Controller
         $produto = Produto::find($id);
         $produto->delete();
 
-        return redirect()
-        ->action('ProdutoController@lista');
+        return redirect()->action('ProdutoController@lista');
     }
 
     public function listaJson()
-    {
-        //$produtos = DB::select('select * from produtos');
+    {//$produtos = DB::select('select * from produtos');
         $produtos = Produto::all();
-        return response()
-        ->json($produtos);
+        
+        return response()->json($produtos);
     }
 }
