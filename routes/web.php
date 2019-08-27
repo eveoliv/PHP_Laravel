@@ -23,3 +23,6 @@ Route::post('/produtos/adiciona', 'ProdutoController@adiciona');
 Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+');
 Route::get('/produtos/editar/{id}', 'ProdutoController@editar')->where('id', '[0-9]+');
 Route::post('/produtos/alterar/{id}', 'ProdutoController@alterar')->where('id', '[0-9]+');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
