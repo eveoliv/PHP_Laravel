@@ -5,7 +5,7 @@
     <link href="/css/custom.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <title>Controle de Estoque</title>
+    <title>Controle de Estoque - Modelo</title>
 </head>
 <body>
     <div class="container mt-5">
@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/produtos">
-                Estoque Laravel
+                Estoque Laravel - Modelo
                 </a>
             </div>
             <ul class="nav navbar-nav navbar-right">
@@ -32,13 +32,18 @@
                     ListaJson
                 </a>
             </li>
+            <li>
+                <a href="{{action('HomeController@index')}}">
+                    Logout
+                </a>
+            </li>
             </ul>
         </div>
     </nav>
         @yield('conteudo')
 
         <footer class="footer">
-            <p>© Controlde de estoque modelo, PHP e Lavavel.</p>
+            <p>© Everton Oliveira - Controlde de estoque modelo, PHP, Lavavel, MysQl.</p>
         </footer>
     </div>
 </body>

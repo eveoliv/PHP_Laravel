@@ -15,7 +15,7 @@
 //     return '<h1>Primeira lógica com Laravel</h1>';
 // });
 
-Route::get('/produtos', 'ProdutoController@lista');
+Route::get('/produtos', 'ProdutoController@lista');//->middleware('auth');
 Route::get('/produtos/json', 'ProdutoController@listaJson');
 Route::get('/produtos/novo', 'ProdutoController@novo');
 Route::get('/produtos/remover/{id}', 'ProdutoController@remove');
@@ -24,5 +24,4 @@ Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0
 Route::get('/produtos/editar/{id}', 'ProdutoController@editar')->where('id', '[0-9]+');
 Route::post('/produtos/alterar/{id}', 'ProdutoController@alterar')->where('id', '[0-9]+');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
