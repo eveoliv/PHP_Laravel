@@ -37,9 +37,9 @@ class ProdutoController extends Controller
         return view('produto.formulario');
     }
 
-    public function adiciona(ProdutosRequest $request)
+    public function adiciona()
     {           
-        Produto::create($request::all());
+        Produto::create(Request::all());
                 
         return redirect()->action('ProdutoController@lista')->withInput(Request::only('nome'));   
     }
