@@ -33,8 +33,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{action('HomeController@index')}}">
-                    Logout
+                <a href="/sair" class="text-danger">
+                    Sair
                 </a>
             </li>
             </ul>

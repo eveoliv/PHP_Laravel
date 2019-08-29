@@ -28,7 +28,7 @@
         <input name="quantidade" type="number" class="form-control" value="{{ $p->quantidade }}"/>
     </div>
 
-    <button type="submit" class="btn btn-primary btn-block">
+    <button type="submit" class="btn btn-success btn-block">
     Enviar
     </button>
 </form>

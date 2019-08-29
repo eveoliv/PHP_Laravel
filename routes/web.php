@@ -25,3 +25,8 @@ Route::get('/produtos/editar/{id}', 'ProdutoController@editar')->where('id', '[0
 Route::post('/produtos/alterar/{id}', 'ProdutoController@alterar')->where('id', '[0-9]+');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/sair', function () {
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect('/login');
+});
